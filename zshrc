@@ -17,7 +17,7 @@ alias pullchannel='youtube-dl -f best -ciw -o "%(title)s.%(ext)s" -v '
 alias pullsong='youtube-dl -x --audio-format mp3 '
 
 alias ls='ls --color=auto'
-alias s='sudo '
+alias s=' sudo '
 alias p=' python3 '
 alias pip=' pip3 '
 alias t='tree -C -L 1'
