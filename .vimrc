@@ -1,4 +1,3 @@
-
 "plugins to install
 call plug#begin('~/.vim/plugged')
 
@@ -9,7 +8,6 @@ Plug 'davidhalter/jedi-vim'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 call plug#end()
-
 
 colorscheme onedark
 let g:airline_theme = 'onedark'
