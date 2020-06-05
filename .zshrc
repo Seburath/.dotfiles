@@ -11,7 +11,7 @@ alias vspells=' v ~/.vimrc '
 alias rc=' v ~/.config/nvim/init.vim'
 alias rccolor=' v ~/.config/nvim/pack/onedark/opt/onedark.vim/colors/onedark.vim'
 
-alias portal='s p /home/sebu/green-env/container.py '
+alias portal=' '
 
 alias pullchannel='youtube-dl -f best -ciw -o "%(title)s.%(ext)s" -v '
 alias pullsong='youtube-dl -x --audio-format mp3 '
