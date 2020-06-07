@@ -1,68 +1,32 @@
-/usr/bin/setxkbmap -option "ctrl:nocaps"
-
 set -o vi
+ZSH_THEME="intheloop"
+export ZSH="/home/sebu/.oh-my-zsh"
+
+alias clone='bash -xc '\''git clone https://github.com/$0 '\'''
 
 alias v='vim '
-alias head='cd /home/casa/CyberHead '
-alias headenv='source /home/casa/CyberHead/env/bin/activate'
-
-alias spells=' v ~/.zshrc '
-alias vspells=' v ~/.vimrc '
-alias rc=' v ~/.config/nvim/init.vim'
-alias rccolor=' v ~/.config/nvim/pack/onedark/opt/onedark.vim/colors/onedark.vim'
-
-alias portal=' '
-
-alias pullchannel='youtube-dl -f best -ciw -o "%(title)s.%(ext)s" -v '
-alias pullsong='youtube-dl -x --audio-format mp3 '
-
 alias ls='ls --color=auto'
 alias s=' sudo '
 alias p=' python3 '
 alias pip=' pip3 '
 alias t='tree -C -L 1'
 
-alias serve='p /home/sebu/git/seburath.github.io/server.py'
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+alias head='cd /home/sebu/CyberHead '
+alias headenv='source /sebu/casa/CyberHead/env/bin/activate'
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/casa/.oh-my-zsh"
+alias spells=' v ~/.zshrc '
+alias vspells=' v ~/.vimrc '
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="muse"
+alias portal=' '
 
-
-
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/casa/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/casa/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/casa/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/casa/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-
+alias pullchannel='youtube-dl -f best -ciw -o "%(title)s.%(ext)s" -v '
+alias pullsong='youtube-dl -x --audio-format mp3 '
 
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -114,8 +78,8 @@ unset __conda_setup
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
