@@ -42,3 +42,5 @@ let g:jedi#show_call_signatures = "1"
 :set completeopt=longest,menuone
 
 nnoremap <buffer> <C-r> <Esc>:w<cr>:exec '!python3' shellescape(@%, 1)<cr>
+
+hi Normal guibg=NONE ctermbg=NONE
