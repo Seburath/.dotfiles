@@ -2,7 +2,9 @@ pacman -Qqen > pacman-pkglist.txt
 yay -Qqen > yay-pkglist.txt
 cp ~/.zshrc .zshrc
 cp ~/.vimrc .vimrc
+
 cp -r ~/.config .config
+cp -r ~/.oh-my-zsh .oh-my-zsh
 
 sudo git add *
 git commit -m 'dotfiles update'
