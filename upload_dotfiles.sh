@@ -6,6 +6,7 @@ cp ~/.vimrc .vimrc
 cp ~/.oh-my-zsh/themes/intheloop.zsh-theme fire.zsh-theme
 
 cp -r ~/.config/terminator/* .config/terminator/*
+cp -r ~/.config/xfce4/* .config/xfce4/*
 
 sudo chmod -R ugo+rwX .
 
