@@ -3,8 +3,8 @@ yay -Qqen > yay-pkglist.txt
 cp ~/.zshrc .zshrc
 cp ~/.vimrc .vimrc
 
-cp -r ~/.config .config
-cp -r ~/.oh-my-zsh .oh-my-zsh
+cp -r ~/.config/ .config
+cp ~/.oh-my-zsh/themes/intheloop.zsh-theme oh-my-zsh .oh-my-zsh/themes/intheloop.zsh-theme
 
 sudo git add *
 git commit -m 'dotfiles update'
