@@ -28,12 +28,13 @@ alias serve='p /home/sebu/git/seburath.github.io/server.py'
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/sebu/.oh-my-zsh"
+export ZSH="/home/ubuntu/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#
 ZSH_THEME="fire"
 
 
@@ -43,14 +44,14 @@ ZSH_THEME="fire"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/casa/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/ubuntu/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/home/casa/anaconda3/etc/profile.d/conda.sh" ]; then
         . "/home/casa/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/casa/anaconda3/bin:$PATH"
+        export PATH="/home/ubuntu/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
