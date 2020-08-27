@@ -17,9 +17,6 @@ ubuntu-install:
 	sudo snap install \
 	  	hub
 
-	ln -s -f `pwd`/zshrc ~/.zshrc
-	ln -s -f `pwd`/vimrc ~/.vimrc
-
 arch-install:
 	sudo pacman -S \
 		zsh \
@@ -31,9 +28,6 @@ arch-install:
 		curl
 		#hub
 
-	ln -s -f `pwd`/zshrc ~/.zshrc
-	ln -s -f `pwd`/vimrc ~/.vimrc
-	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
 	ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
 	ln -s -f `pwd`/config/xfce4/ ~/.config/xfce4/
 
@@ -45,5 +39,9 @@ common:
 	#oh-myzsh
 	sudo rm -rf ~/.oh-my-zsh
 	sudo sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	
+	ln -s -f `pwd`/zshrc ~/.zshrc
+	ln -s -f `pwd`/vimrc ~/.vimrc
+	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
 
 .PHONY: ubntu arch ubuntu-install arch-install common
