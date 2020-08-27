@@ -18,8 +18,14 @@ install:
 symlinks:
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
+<<<<<<< HEAD
 	ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
 	ln -s -f `pwd`/config/xfce4/ ~/.config/xfce4/
 	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
+=======
+	#ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
+	#ln -s -f `pwd`/config/xfce4/ ~/.config/xfce4/
+	#ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
+>>>>>>> 14ae1ee910e2b490079f068d818a3919e7cc2fa7
 
 .PHONY: install symlinks
