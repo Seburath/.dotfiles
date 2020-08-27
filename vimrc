@@ -18,7 +18,6 @@ colorscheme onedark
 let g:airline_theme = 'onedark'
 
 set undofile
-set termguicolors
 set nu
 syntax enable
 
