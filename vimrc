@@ -9,7 +9,7 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'  " General fuzzy finder
-Plug 'stsewd/fzf-checkout.vim'
+Plug '~/fzf-checkout.vim'
 Plug 'stsewd/gx-extended.vim'
 
 call plug#end()
@@ -21,6 +21,12 @@ set undofile
 set termguicolors
 set nu
 syntax enable
+
+set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set shiftround
+set expandtab
 
 set colorcolumn=78,60
 

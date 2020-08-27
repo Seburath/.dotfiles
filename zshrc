@@ -2,12 +2,16 @@
 
 set -o vi
 
-alias v='vim '
+alias gs='git status '
+
+alias v='nvim '
+alias vim='nvim '
 alias head='cd /home/casa/CyberHead '
 alias headenv='source /home/casa/CyberHead/env/bin/activate'
 
 alias spells=' v ~/.zshrc '
-alias vspells=' v ~/.vimrc '
+alias vspells='v ~/.config/nvim/init.vim'
+
 alias rc=' v ~/.config/nvim/init.vim'
 alias rccolor=' v ~/.config/nvim/pack/onedark/opt/onedark.vim/colors/onedark.vim'
 
@@ -28,7 +32,7 @@ alias serve='p /home/sebu/git/seburath.github.io/server.py'
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ubuntu/.oh-my-zsh"
+export ZSH="/home/sebu/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
