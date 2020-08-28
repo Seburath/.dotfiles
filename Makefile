@@ -11,7 +11,7 @@ ubuntu-install:
 		terminator \
 		git \
 		python3 \
-		python-pip \
+		python3-pip \
 		curl \
 		snap
 
