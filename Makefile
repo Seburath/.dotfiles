@@ -1,21 +1,31 @@
 ubuntu: ubuntu-install common
-
+container: container-install common
 arch: arch-install common
 
-ubuntu-install:
+container-install:
 	apt-get update
-
 	apt-get install -y \
 	  	vim \
 		zsh \
-		terminator \
+		git \
+		python3 \
+		python3-pip \
+		curl
+
+ubuntu-install:
+	sudo apt-get update
+	sudo apt-get install -y \
+	  	vim \
+		zsh \
 		git \
 		python3 \
 		python3-pip \
 		curl
 
 arch-install:
+	sudo pacman -Syu
 	sudo pacman -S \
+		vim \
 		zsh \
 		terminator \
 		git \
@@ -23,19 +33,18 @@ arch-install:
 		python-pip \
 		fzf \
 		curl
-		#hub
 
 	ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
 	ln -s -f `pwd`/config/xfce4/ ~/.config/xfce4/
 
 common:
 	#vim-plug
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	#oh-myzsh
 	rm -rf ~/.oh-my-zsh
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sudo sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
