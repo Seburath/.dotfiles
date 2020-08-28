@@ -49,4 +49,5 @@ push:
 	git commit -m 'update'
 	git push
 
+
 .PHONY: ubntu arch ubuntu-install arch-install common
