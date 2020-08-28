@@ -5,7 +5,7 @@ arch: arch-install common
 ubuntu-install:
 	apt-get update
 
-	apt-get install \
+	apt-get install -y \
 	  	vim \
 		zsh \
 		terminator \
