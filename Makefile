@@ -44,4 +44,9 @@ common:
 	ln -s -f `pwd`/vimrc ~/.vimrc
 	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
 
+push:
+	git add *
+	git commit -m 'update'
+	git push
+
 .PHONY: ubntu arch ubuntu-install arch-install common
