@@ -3,9 +3,10 @@ ubuntu: ubuntu-install common
 arch: arch-install common
 
 ubuntu-install:
-	sudo apt-get update
+	apt-get update
 
-	sudo apt-get install \
+	apt-get install \
+	  	vim \
 		zsh \
 		terminator \
 		git \
@@ -14,7 +15,7 @@ ubuntu-install:
 		curl \
 		snap
 
-	sudo snap install \
+	snap install \
 	  	hub
 
 arch-install:
@@ -37,8 +38,8 @@ common:
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	#oh-myzsh
-	sudo rm -rf ~/.oh-my-zsh
-	sudo sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	rm -rf ~/.oh-my-zsh
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
@@ -50,4 +51,4 @@ push:
 	git push
 
 
-.PHONY: ubntu arch ubuntu-install arch-install common
+.PHONY: ubntu arch ubuntu-install arch-install common push
