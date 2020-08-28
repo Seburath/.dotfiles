@@ -12,11 +12,7 @@ ubuntu-install:
 		git \
 		python3 \
 		python3-pip \
-		curl \
-		snap
-
-	snap install \
-	  	hub
+		curl
 
 arch-install:
 	sudo pacman -S \
