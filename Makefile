@@ -49,7 +49,8 @@ common:
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
 	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
-
+	ln -s -f `pwd`/config/nvim/ ~/.config/nvim/
+	
 push:
 	git add *
 	git commit -m 'update'
