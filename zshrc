@@ -30,7 +30,7 @@ alias serve=''
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="/home/sebu/.oh-my-zsh"
+export ZSH="/home/ubuntu/.oh-my-zsh"
 
 ZSH_THEME="fire"
 
