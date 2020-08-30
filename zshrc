@@ -10,9 +10,6 @@ alias v='nvim '
 alias vim='nvim '
 alias vspells='v ~/.config/nvim/init.vim'
 
-alias head='cd /home/casa/CyberHead '
-
-
 alias rc=' v ~/.config/nvim/init.vim'
 alias rccolor=' v ~/.config/nvim/pack/onedark/opt/onedark.vim/colors/onedark.vim'
 

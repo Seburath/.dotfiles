@@ -44,12 +44,6 @@ Plug 'ludovicchabant/vim-gutentags'  " Automated tag file generation
 Plug 'liuchengxu/vista.vim'
 
 
-" ## Other Utilities
-
-Plug 'stsewd/spotify.nvim', {'do': ':UpdateRemotePlugins'}  " Control Spotify
-Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " Free distraction mode
-
-
 " ## Text Objects & Motions
 
 Plug 'chaoren/vim-wordmotion'  " Wordmotion text-object
@@ -72,9 +66,9 @@ Plug 'honza/vim-snippets'
 
 " ## Themes & Color Schemes
 
+Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline-themes'  " Themes for airline
 Plug 'ryanoasis/vim-devicons'  " Show icons on filetypes
-Plug 'ayu-theme/ayu-vim'
 
 
 " ## Languages
@@ -87,11 +81,11 @@ Plug 'alvan/vim-closetag'  " Closes tag after '>'
 
 " ### Python
 
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " ### ReStructuredText
 
-Plug '~/sphinx.nvim', {'do': ':UpdateRemotePlugins'}
+"Plug '~/sphinx.nvim', {'do': ':UpdateRemotePlugins'}
 
 " ### Vim
 
@@ -153,8 +147,10 @@ set inccommand=nosplit " Show replace live preview
 " ## Theme & Colorscheme
 
 set termguicolors  " Active true colors on terminal
-let g:ayucolor = 'mirage'  " mirage, light, dark
-colorscheme ayu
+colorscheme onedark
+let g:airline_theme = 'onedark'
+hi Normal guibg=NONE ctermbg=NONE
+
 
 
 " ## Python providers

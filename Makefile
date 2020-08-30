@@ -23,7 +23,7 @@ ubuntu-install:
 		curl
 
 arch-install:
-	sudo pacman -Syu
+	#sudo pacman -Syu
 	sudo pacman -S \
 		vim \
 		zsh \
@@ -34,7 +34,7 @@ arch-install:
 		fzf \
 		curl
 
-	ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
+	#ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
 	ln -s -f `pwd`/config/xfce4/ ~/.config/xfce4/
 
 common:
@@ -44,17 +44,17 @@ common:
 
 	#oh-myzsh
 	rm -rf ~/.oh-my-zsh
-	sudo sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	cp fire.zsh-theme ~/.oh-my-zsh/themes/fire.zsh-theme
 	
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
 	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
-	ln -s -f `pwd`/config/nvim/ ~/.config/nvim/
-	
+	#ln -s -f `pwd`/config/nvim/ ~/.config/nvim/
+
 push:
 	git add *
 	git commit -m 'update'
 	git push
-
 
 .PHONY: ubntu arch ubuntu-install arch-install common push
