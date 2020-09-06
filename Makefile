@@ -16,6 +16,7 @@ ubuntu-install:
 	sudo apt-get update
 	sudo apt-get install -y \
 	  	vim \
+                neovim \
 		zsh \
 		git \
 		python3 \
