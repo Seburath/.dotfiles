@@ -24,7 +24,7 @@ ubuntu-install:
 		curl
 
 arch-install:
-	#sudo pacman -Syu
+	sudo pacman -Syu
 	sudo pacman -S \
 		vim \
 		zsh \
@@ -36,7 +36,7 @@ arch-install:
 		curl
 
 	#ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
-	ln -s -f `pwd`/config/xfce4/ ~/.config/xfce4/
+	ln -s -f `pwd`/config/xfce4/ ~/.config/
 
 common:
 	#vim-plug
@@ -51,7 +51,7 @@ common:
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
 	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
-	#ln -s -f `pwd`/config/nvim/ ~/.config/nvim/
+	ln -s -f `pwd`/config/nvim/ ~/.config/
 
 push:
 	git add *
