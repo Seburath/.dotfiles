@@ -50,8 +50,9 @@ common:
 	
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
-	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
 	ln -s -f `pwd`/config/nvim/init.vim ~/.config/init.vim
+	ln -s -f `pwd`/fire.zsh-theme ~/.oh-my-zsh/themes/fire.zsh-theme
+	
 
 push:
 	git add *
