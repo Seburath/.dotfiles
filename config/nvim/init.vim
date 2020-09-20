@@ -1,13 +1,14 @@
 scriptencoding utf-8
 
-" .........................................................
+
+"" .........................................................
 " # Plugins
 " .........................................................
 
 call plug#begin('~/.local/share/nvim/plugged')
 
 
-" ## The best plugin in this stelar cuadrant! (spam of my plugin)
+" ## Search pieces of code
 
 Plug '~/searchcode' " search pieces of code in searchcode.com
 
@@ -40,6 +41,8 @@ Plug 'junegunn/fzf.vim'  " General fuzzy finder
 Plug '~/fzf-checkout.vim'
 Plug 'stsewd/gx-extended.vim'
 
+Plug 'tpope/vim-fugitive'
+
 Plug 'ludovicchabant/vim-gutentags'  " Automated tag file generation
 Plug 'liuchengxu/vista.vim'
 
@@ -61,12 +64,11 @@ Plug 'lambdalisue/gina.vim'  " Asynchronously Git wrapper
 " ## Autocompletion
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
 
 
 " ## Themes & Color Schemes
-
-Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
+"Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline-themes'  " Themes for airline
 Plug 'ryanoasis/vim-devicons'  " Show icons on filetypes
 
@@ -94,6 +96,131 @@ Plug 'neoclide/coc-neco'
 Plug 'junegunn/vader.vim'
 
 call plug#end()
+
+
+" .........................................................
+"  # Mappings
+" .........................................................
+" Map <leader> to space
+let g:mapleader = "\<space>"
+
+" Normal mode
+inoremap <C-e> <Esc>
+nnoremap <C-e> <Esc>
+tnoremap <C-e> <Esc>
+
+" Write command
+nnoremap <C-f> :!
+inoremap <C-f> :!
+tnoremap <C-f> :!
+
+
+" Execute current file with python3
+nnoremap <buffer> <C-p> <Esc>:w<cr>:exec '!python3' shellescape(@%, 1)<cr>
+inoremap <buffer> <C-p> <Esc>:w<cr>:exec '!python3' shellescape(@%, 1)<cr>
+
+" Save
+nnoremap <leader>w :w<CR>
+
+" Refresh
+nnoremap <leader>e :e! <bar> TSBufEnable highlight<CR>
+
+" Edit init.vim
+nnoremap <leader>i :e $MYVIMRC<CR>
+
+" Edit zshrc
+nnoremap <leader>u :e ~/.zshrc<Enter>
+
+" Clear highlight
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+
+" Copy/cut/paste to/from clipboard
+noremap <leader>y "+y
+noremap <leader>d "+d
+noremap <leader>p "+p
+noremap <leader>P "+P
+
+" Scroll
+nnoremap <up> <c-y>
+nnoremap <down> <c-e>
+nnoremap <right> zl
+nnoremap <left> zh
+
+" Search
+nnoremap * *N
+nnoremap # #N
+
+" Keep undo
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
+
+" Exit terminal mode with escape
+tnoremap <Esc> <C-\><C-n>
+
+" Send escape to terminal
+tnoremap <A-[> <Esc>
+
+" Copy current path with line number
+nnoremap <silent> <leader>o
+      \ :let @" = expand('%:p') . ':' . line('.') <bar> echo @"<CR>
+
+" ## Windows
+nnoremap <M-l> <C-W>l"
+nnoremap <M-h> <C-W>h"
+nnoremap <M-j> <C-W>j"
+nnoremap <M-k> <C-W>k"
+
+inoremap <M-l> <Esc> <C-W>l"
+inoremap <M-h> <Esc> <C-W>h"
+inoremap <M-j> <Esc> <C-W>j"
+inoremap <M-k> <Esc> <C-W>k"
+
+tnoremap <M-l> <Esc> <C-W>l"
+tnoremap <M-h> <Esc> <C-W>h"
+tnoremap <M-j> <Esc> <C-W>j"
+tnoremap <M-k> <Esc> <C-W>k"
+
+
+nnoremap <C-t> :terminal <Enter>
+inoremap <C-t> <Esc> :terminal <Enter>
+
+" ## Airline
+
+" Mappings to change buffer
+nmap <M-u> <Plug>AirlineSelectPrevTab
+nmap <M-i> <Plug>AirlineSelectNextTab
+nmap <M-1> <Esc> <Plug>AirlineSelectTab1
+nmap <M-2> <Esc> <Plug>AirlineSelectTab2
+nmap <M-3> <Esc> <Plug>AirlineSelectTab3
+nmap <M-4> <Esc> <Plug>AirlineSelectTab4
+nmap <M-5> <Esc> <Plug>AirlineSelectTab5
+
+imap <M-u> <Esc> <Plug>AirlineSelectPrevTab
+imap <M-i> <Esc> <Plug>AirlineSelectNextTab
+imap <M-1> <Esc> <Plug>AirlineSelectTab1
+imap <M-2> <Esc> <Plug>AirlineSelectTab2
+imap <M-3> <Esc> <Plug>AirlineSelectTab3
+imap <M-4> <Esc> <Plug>AirlineSelectTab4
+imap <M-5> <Esc> <Plug>AirlineSelectTab5
+
+tmap <M-u> <Esc> <Plug>AirlineSelectPrevTab
+tmap <M-i> <Esc> <Plug>AirlineSelectNextTab
+tmap <M-1> <Esc> <Plug>AirlineSelectTab1
+tmap <M-2> <Esc> <Plug>AirlineSelectTab2
+tmap <M-3> <Esc> <Plug>AirlineSelectTab3
+tmap <M-4> <Esc> <Plug>AirlineSelectTab4
+tmap <M-5> <Esc> <Plug>AirlineSelectTab5
+
+let g:airline_skip_empty_sections = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1  " Show open buffers/tabs
+let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+let g:airline#extensions#virtualenv#enabled = 0  " Don't show current virtualenv
+let g:airline#extensions#tabline#ignore_bufadd_pat = '!|defx|gundo|nerd_tree|startify|undotree'
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#coc#enabled = 0
 
 
 " ..........................................................
@@ -147,9 +274,10 @@ set inccommand=nosplit " Show replace live preview
 " ## Theme & Colorscheme
 
 set termguicolors  " Active true colors on terminal
-colorscheme onedark
-let g:airline_theme = 'onedark'
-hi Normal guibg=NONE ctermbg=NONE
+colorscheme one
+set background=dark
+let g:airline_theme = 'one'
+"hi Normal guibg=NONE ctermbg=NONE
 
 
 
@@ -157,55 +285,6 @@ hi Normal guibg=NONE ctermbg=NONE
 
 let g:loaded_python_provider = 0
 let g:python3_host_prog = $NVIM_PYTHON_HOST
-
-
-" .........................................................
-"  # Mappings
-" .........................................................
-
-" Map <leader> to space
-let g:mapleader = "\<space>"
-
-" Save
-nnoremap <leader>w :w<CR>
-
-" Refresh
-nnoremap <leader>e :e! <bar> TSBufEnable highlight<CR>
-
-" Edit init.vim
-nnoremap <leader>i :e $MYVIMRC<CR>
-
-" Clear highlight
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-
-" Copy/cut/paste to/from clipboard
-noremap <leader>y "+y
-noremap <leader>d "+d
-noremap <leader>p "+p
-noremap <leader>P "+P
-
-" Scroll
-nnoremap <up> <c-y>
-nnoremap <down> <c-e>
-nnoremap <right> zl
-nnoremap <left> zh
-
-" Search
-nnoremap * *N
-nnoremap # #N
-
-" Keep undo
-inoremap <C-U> <C-G>u<C-U>
-inoremap <C-W> <C-G>u<C-W>
-
-" Exit terminal mode with escape
-tnoremap <Esc> <C-\><C-n>
-" Send escape to terminal
-tnoremap <A-[> <Esc>
-
-" Copy current path with line number
-nnoremap <silent> <leader>o
-      \ :let @" = expand('%:p') . ':' . line('.') <bar> echo @"<CR>
 
 " .........................................................
 "  # Custom Commands and Autocommands
@@ -269,8 +348,6 @@ let g:coc_global_extensions = [
     \ 'coc-word',
     \ 'coc-syntax',
     \ 'coc-dictionary',
-    \ 'coc-snippets',
-    \ 'coc-emoji',
     \ 'coc-json',
     \ 'coc-yaml',
     \ 'coc-html',
@@ -316,23 +393,6 @@ nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
 
 
-" ## Luatree
-
-nnoremap <silent> <leader>n :LuaTreeToggle<CR>
-nnoremap <silent> <leader>N :LuaTreeFindFile<CR>:LuaTreeOpen<CR>
-
-let g:lua_tree_ignore = [
-      \ '.git', 'node_modules', '.cache', '\.pyc$', '__pycache__', 'tags',
-      \]
-let g:lua_tree_icons = {
-      \ 'default': '  ',
-      \ 'folder': {'default': '', 'open': ''},
-      \}
-
-highlight link LuaTreeFolderName NERDTreeDir
-highlight link LuaTreeSpecialFile Normal
-
-
 " ## Vista
 
 let g:vista_default_executive = 'coc'
@@ -354,23 +414,6 @@ let g:wordmotion_mappings = {
       \ 'iW': '',
       \ '<C-R><C-A>': '',
       \}
-
-" ## Airline
-
-" Mappings to change buffer
-nmap <leader>j <Plug>AirlineSelectPrevTab
-nmap <leader>k <Plug>AirlineSelectNextTab
-
-let g:airline_skip_empty_sections = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1  " Show open buffers/tabs
-let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-let g:airline#extensions#virtualenv#enabled = 0  " Don't show current virtualenv
-let g:airline#extensions#tabline#ignore_bufadd_pat = '!|defx|gundo|nerd_tree|startify|undotree'
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#coc#enabled = 0
 
 
 " ## Gutentags
@@ -469,31 +512,6 @@ nnoremap <silent> <leader>gu :Gread<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 
 
-" ## Markdown
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_no_default_key_mappings = 1
-
-
-" ## ReStructuredText
-
-let g:rst_style = 1
-
-
-" ## rust.vim
-
-let g:rustfmt_autosave = 1
-
-
-" ## Spotify
-
-nmap <leader>ss <Plug>(spotify-play/pause)
-nmap <leader>sj <Plug>(spotify-next)
-nmap <leader>sk <Plug>(spotify-prev)
-nmap <leader>so <Plug>(spotify-show)
-nmap <leader>sc <Plug>(spotify-status)
-
-
 " ## Sayonara
 
 nnoremap <silent> <leader>q :Sayonara<CR>
@@ -519,10 +537,28 @@ let g:startify_lists = [
       \]
 
 
-" ## Treesitter
 
 " Don't highlight errors
 highlight link TSError Normal
 highlight link TSDefinition TSDefinitionUsage
 
 "luafile $HOME/.config/nvim/init.lua
+
+" ## Luatree
+
+nnoremap <silent> <leader>n :LuaTreeToggle<CR>
+nnoremap <silent> <leader>N :LuaTreeFindFile<CR>:LuaTreeOpen<CR>
+
+let g:lua_tree_ignore = [
+      \ '.git', 'node_modules', '.cache', '\.pyc$', '__pycache__', 'tags',
+      \]
+let g:lua_tree_icons = {
+      \ 'default': '  ',
+      \ 'folder': {'default': '', 'open': ''},
+      \}
+
+highlight link LuaTreeFolderName NERDTreeDir
+highlight link LuaTreeSpecialFile Normal
+
+
+

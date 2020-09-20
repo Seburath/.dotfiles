@@ -35,8 +35,8 @@ arch-install:
 		fzf \
 		curl
 
-	#ln -s -f `pwd`/config/terminator/ ~/.config/terminator/
-	ln -s -f `pwd`/config/xfce4/ ~/.config/
+	ln -s -f `pwd`/config/terminator/config ~/.config/terminator/config
+	#ln -s -f `pwd`/config/xfce4/ ~/.config/
 
 common:
 	#vim-plug
@@ -51,7 +51,7 @@ common:
 	ln -s -f `pwd`/zshrc ~/.zshrc
 	ln -s -f `pwd`/vimrc ~/.vimrc
 	ln -s -f `pwd`/oh-my-zsh/ ~/.oh-my-zsh/
-	ln -s -f `pwd`/config/nvim/ ~/.config/
+	ln -s -f `pwd`/config/nvim/init.vim ~/.config/init.vim
 
 push:
 	git add *
