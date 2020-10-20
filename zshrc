@@ -2,13 +2,18 @@
 
 set -o vi
 
+
+alias off='sudo shutdown now'
+alias reboot='sudo reboot'
 alias wifi='sudo wifi-menu'
 
 alias v='nvim '
 alias spells=' v ~/.zshrc '
 alias vspells='v ~/.config/nvim/init.vim'
 
-alias gs='git status '
+alias st='git status '
+alias g='hub '
+git config --global hub.protocol https
 
 alias portal=' '
 alias serve=''
@@ -22,6 +27,9 @@ alias p=' python3 '
 alias pip=' pip3 '
 alias t='tree -C -L 1'
 
+alias nk='p -m nikola '
+
+alias fat='p ~/.config/fat-FFMI/index.py'
 
 export ZSH="/home/sebu/.oh-my-zsh"
 

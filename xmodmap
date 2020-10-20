@@ -1,0 +1,13 @@
+keycode 66 = Mode_switch
+
+keysym h = h H Left
+keysym l = l L Right
+keysym k = k K Up
+keysym j = j J Down
+
+keysym n = n N ntilde Ntilde
+keysym a = a A aacute Aacute ae AE ae
+keysym e = e E eacute Eacute EuroSign cent EuroSign
+keysym i = i I iacute Iacute rightarrow idotless rightarrow
+keysym o = o O oacute Oacute oslash Oslash oslash
+keysym u = u U uacute Uacute downarrow uparrow downarrow

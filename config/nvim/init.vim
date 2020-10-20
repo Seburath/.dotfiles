@@ -8,6 +8,8 @@ scriptencoding utf-8
 call plug#begin('~/.local/share/nvim/plugged')
 
 
+Plug 'codota/tabnine-vim'
+
 " ## Search pieces of code
 
 Plug '~/searchcode' " search pieces of code in searchcode.com
@@ -35,7 +37,9 @@ Plug 'mhinz/vim-grepper'
 
 " ## Navigation
 
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'  " General fuzzy finder
 Plug '~/fzf-checkout.vim'
@@ -97,11 +101,20 @@ Plug 'junegunn/vader.vim'
 
 call plug#end()
 
+inoremap <M-H> <C-O>h
 
-" .........................................................
+
+" ## Theme & Colorscheme
+
+set termguicolors  " Active true colors on terminal
+colorscheme one
+set background=dark
+let g:airline_theme = 'one'
+hi Normal guibg=NONE ctermbg=NONE
+
+
 "  # Mappings
-" .........................................................
-" Map <leader> to space
+
 let g:mapleader = "\<space>"
 
 " Normal mode
@@ -116,8 +129,10 @@ tnoremap <C-f> :!
 
 
 " Execute current file with python3
-nnoremap <buffer> <C-p> <Esc>:w<cr>:exec '!python3' shellescape(@%, 1)<cr>
-inoremap <buffer> <C-p> <Esc>:w<cr>:exec '!python3' shellescape(@%, 1)<cr>
+nnoremap <buffer> <leader>p <Esc>:w<cr>:exec 'terminal python3' shellescape(@%, 1)<cr>
+inoremap <buffer> <leader>p <Esc>:w<cr>:exec 'terminal python3' shellescape(@%, 1)<cr>
+nnoremap <buffer> <leader>c <Esc>:bd
+inoremap <buffer> <leader>c <Esc>:bd
 
 " Save
 nnoremap <leader>w :w<CR>
@@ -269,15 +284,6 @@ set ignorecase
 set smartcase
 set gdefault
 set inccommand=nosplit " Show replace live preview
-
-
-" ## Theme & Colorscheme
-
-set termguicolors  " Active true colors on terminal
-colorscheme one
-set background=dark
-let g:airline_theme = 'one'
-"hi Normal guibg=NONE ctermbg=NONE
 
 
 
@@ -517,6 +523,8 @@ nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>q :Sayonara<CR>
 nnoremap <silent> <leader>Q :Sayonara!<CR>
 
+tnoremap <silent> <leader>q :Sayonara<CR>
+inoremap <silent> <leader>q <Esc>:Sayonara<CR>
 
 " ## Startify
 
@@ -559,6 +567,3 @@ let g:lua_tree_icons = {
 
 highlight link LuaTreeFolderName NERDTreeDir
 highlight link LuaTreeSpecialFile Normal
-
-
-
