@@ -1,6 +1,6 @@
-/usr/bin/setxkbmap -option "ctrl:nocaps"
-
 set -o vi
+
+xmodmap ~/.xmodmap
 
 
 alias off='sudo shutdown now'
@@ -28,6 +28,7 @@ alias pip=' pip3 '
 alias t='tree -C -L 1'
 
 alias nk='p -m nikola '
+alias t='p -m nox -r'
 
 alias fat='p ~/.config/fat-FFMI/index.py'
 

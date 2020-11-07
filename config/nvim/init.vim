@@ -8,8 +8,6 @@ scriptencoding utf-8
 call plug#begin('~/.local/share/nvim/plugged')
 
 
-Plug 'codota/tabnine-vim'
-
 " ## Search pieces of code
 
 Plug '~/searchcode' " search pieces of code in searchcode.com
@@ -130,7 +128,7 @@ tnoremap <C-f> :!
 
 " Execute current file with python3
 nnoremap <buffer> <leader>p <Esc>:w<cr>:exec 'terminal python3' shellescape(@%, 1)<cr>
-inoremap <buffer> <leader>p <Esc>:w<cr>:exec 'terminal python3' shellescape(@%, 1)<cr>
+"inoremap <buffer> <leader>p <Esc>:w<cr>:exec 'terminal python3' shellescape(@%, 1)<cr>
 nnoremap <buffer> <leader>c <Esc>:bd
 inoremap <buffer> <leader>c <Esc>:bd
 
