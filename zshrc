@@ -2,12 +2,13 @@ set -o vi
 
 xmodmap ~/.xmodmap
 
-
+alias q='exit'
 alias off='sudo shutdown now'
 alias reboot='sudo reboot'
 alias wifi='sudo wifi-menu'
 
-alias v='nvim '
+alias v='vim '
+alias r='ranger '
 alias spells=' v ~/.zshrc '
 alias vspells='v ~/.config/nvim/init.vim'
 
@@ -28,12 +29,8 @@ alias pip=' pip3 '
 alias t='tree -C -L 1'
 
 alias nk='p -m nikola '
-alias t='p -m nox -r'
-
-alias fat='p ~/.config/fat-FFMI/index.py'
 
 export ZSH="/home/sebu/.oh-my-zsh"
-
 ZSH_THEME="fire"
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -51,3 +48,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='vim'
 fi
+
+# Created by `userpath` on 2020-12-02 02:09:46
+export PATH="$PATH:/home/sebu/.local/bin"
